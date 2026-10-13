@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two Souls, One Universe</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <div id="intro-screen" class="screen">
+    <div class="intro-text">Happy Birthday <span class="pink">Deeksha</span>Papa</div>
+    <div class="really-glow">Tap chey rah😁✨</div>
+  </div>
+  <div id="interactive-screen" class="screen hidden">
+    <div class="title-header">two souls, one universe.</div>
+    <div class="instruction">✦ eiddrnee Drag chey okatii ga ✦</div>
+  </div>
+  <div id="letter-screen" class="screen hidden">
+    <div class="letter-card">
+      <div class="letter-title">My dear Little Sister,</div>
+      <div class="letter-body">
+        <p><strong>🎂 Happy Birthday, My Dearest Deeksha papa 💖</strong></p>
+        <p>Dear Papa,</p>
+        <p>You are not just my little sister; you are a precious part of my heart, my happiness, and one of the most beautiful blessings in my life. 🥹❤️</p>
+        <p>As your big sister, I may not always express how much I love you, but please remember that I will always be there for you — to support you when life gets difficult, to celebrate every little achievement, to wipe your tears, and to remind you how special you are.</p>
+        <p>My sweetest Deeksha, may your life always be filled with happiness, good health, endless love, beautiful dreams, and success. May you always have the courage to chase your dreams and the strength to overcome every challenge. 🌸✨</p>
+        <p>No matter how much we grow up or how many miles separate us, you will always be my little girl, my forever best friend, and someone I will love and protect with all my heart.</p>
+        <p><strong>Some bonds don’t need words every day—they remain strong in the heart forever. 💞</strong></p>
+        <p>I love you more than words can ever explain, Deeksha. Keep smiling, keep shining, and never forget that you will always have your big sister by your side. 🫂💗</p>
+        <p>With all my love, hugs, and blessings,</p>
+        <p><strong>Your loving big sister, forever and always. 💕🎀</strong></p>
+      </div>
+      <div class="letter-signature">
+        With all my love,<br/>
+        <strong>♡page by Shashidhar Gowda</strong>
+      </div>
+    </div>
+  </div>
+  <script>
+    const canvas = document.getElementById('universe');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initSouls();
+    });
+    let currentStep = 1;
+    setTimeout(() => {
+      document.getElementById('intro-screen').classList.add('hidden');
+      document.getElementById('interactive-screen').classList.remove('hidden');
+      currentStep = 2;
+    }, 3200);
+
+    const soulA = { x: 0, y: 0, targetX: 0, targetY: 0, radius: 24, color: '#ff2d75', isDragging: false, particles: [] };
+    const soulB = { x: 0, y: 0, targetX: 0, targetY: 0, radius: 24, color: '#9b4dff', isDragging: false, particles: [] };
+    let stars = [];
+    let heartSparks = [];
+    let isConnected = false;
+    function initSouls() {
+      soulA.x = width * 0.28;
+      soulA.y = height * 0.5;
+      soulB.x = width * 0.72;
+      soulB.y = height * 0.5;
+    }
+    initSouls();
+    for (let i = 0; i < 120; i++) {
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 1.8,
+        alpha: Math.random(),
+        speed: 0.005 + Math.random() * 0.015
+      });
+    }
+    let activeSoul = null;
+    function getPointerPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function onPointerDown(e) {
+      if (currentStep !== 2 || isConnected) return;
+      const pos = getPointerPos(e);
+      const distA = Math.hypot(pos.x - soulA.x, pos.y - soulA.y);
+      const distB = Math.hypot(pos.x - soulB.x, pos.y - soulB.y);
+
+      if (distA < 60) activeSoul = soulA;
+      else if (distB < 60) activeSoul = soulB;
+    }
+
+    function onPointerMove(e) {
+      if (!activeSoul) return;
+      const pos = getPointerPos(e);
+      activeSoul.x = pos.x;
+      activeSoul.y = pos.y;
+      for (let i = 0; i < 3; i++) {
+        activeSoul.particles.push({
+          x: activeSoul.x + (Math.random() - 0.5) * 15,
+          y: activeSoul.y + (Math.random() - 0.5) * 15,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          radius: Math.random() * 4 + 2,
+          alpha: 1,
+          color: activeSoul.color
+        });
+      }
+      const dist = Math.hypot(soulA.x - soulB.x, soulA.y - soulB.y);
+      if (dist < 70 && !isConnected) {
+        triggerConnection();
+      }
+    }
+    function onPointerUp() {
+      activeSoul = null;
+    }
+    window.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('touchend', onPointerUp);
+    function triggerConnection() {
+      isConnected = true;
+      activeSoul = null;
+      const midX = (soulA.x + soulB.x) / 2;
+      const midY = (soulA.y + soulB.y) / 2;
+      soulA.x = midX;
+      soulA.y = midY;
+      soulB.x = midX;
+      soulB.y = midY;
+
+      for (let t = 0; t < Math.PI * 2; t += 0.04) {
+        const heartX = 16 * Math.pow(Math.sin(t), 3);
+        const heartY = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+
+        heartSparks.push({
+          x: midX,
+          y: midY,
+          targetX: midX + heartX * 9,
+          targetY: midY + heartY * 9,
+          currentX: midX,
+          currentY: midY,
+          alpha: 1,
+          color: Math.random() > 0.5 ? '#ff2d75' : '#ff9cf5',
+          size: Math.random() * 3 + 2
+        });
+      }
+
+      setTimeout(() => {
+        document.getElementById('interactive-screen').classList.add('hidden');
+        document.getElementById('letter-screen').classList.remove('hidden');
+
+      }, 1400);
+
+    }
+    function render() {
+      ctx.fillStyle = 'rgba(2, 1, 8, 0.25)';
+      ctx.fillRect(0, 0, width, height);
+      stars.forEach(s => {
+        s.alpha += s.speed;
+        const currentAlpha = Math.abs(Math.sin(s.alpha));
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.8})`;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      [soulA, soulB].forEach(soul => {
+        soul.particles.forEach((p, index) => {
+
+          p.x += p.vx;
+
+          p.y += p.vy;
+
+          p.alpha -= 0.02;
+
+          if (p.alpha <= 0) {
+
+            soul.particles.splice(index, 1);
+
+          } else {
+
+            ctx.fillStyle = p.color;
+
+            ctx.globalAlpha = p.alpha;
+
+            ctx.beginPath();
+
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+
+            ctx.fill();
+
+            ctx.globalAlpha = 1;
+
+          }
+
+        });
+
+
+
+        if (currentStep >= 2 && !isConnected) {
+
+          // Glow effect
+
+          const grad = ctx.createRadialGradient(soul.x, soul.y, 2, soul.x, soul.y, 45);
+
+          grad.addColorStop(0, '#ffffff');
+
+          grad.addColorStop(0.3, soul.color);
+
+          grad.addColorStop(1, 'transparent');
+
+
+
+          ctx.fillStyle = grad;
+
+          ctx.beginPath();
+
+          ctx.arc(soul.x, soul.y, 45, 0, Math.PI * 2);
+
+          ctx.fill();
+
+        }
+
+      });
+
+
+
+      // Render Heart Spark Effect
+
+      if (heartSparks.length > 0) {
+
+        heartSparks.forEach(h => {
+
+          h.currentX += (h.targetX - h.currentX) * 0.08;
+
+          h.currentY += (h.targetY - h.currentY) * 0.08;
+
+
+
+          ctx.fillStyle = h.color;
+
+          ctx.shadowColor = h.color;
+
+          ctx.shadowBlur = 10;
+
+          ctx.beginPath();
+
+          ctx.arc(h.currentX, h.currentY, h.size, 0, Math.PI * 2);
+
+          ctx.fill();
+
+          ctx.shadowBlur = 0;
+
+        });
+
+      }
+
+
+
+      requestAnimationFrame(render);
+
+    }
+
+
+
+    render();
+
+  </script>
+
+</body>
+
+</html>
