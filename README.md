@@ -7,7 +7,7 @@
 
 ## 🌸 About the Project
 
-**Two Souls, One Universe** is a special birthday surprise webpage created with love for my little sister, **Deeksha**.💗
+**My Little Forever ♡** is a special birthday surprise webpage created with love for my little sister, **Deeksha**.💗
 
 As an elder brother, I wanted to create something more meaningful than an ordinary birthday gift — a little corner of the internet filled with love, heartfelt wishes, and beautiful memories.
 
@@ -54,4 +54,4 @@ Made with ❤️, created with code, and dedicated to my little sister.
 
 > *"No matter how big the world gets or how far life takes us, you will always be my little sister, my happiness, and a piece of my heart."* 💖
 
-**To my little sister, Deeksha  — this little universe is just for you from my side rah. 🌙✨**
+**To my little sister, Deeksha maa  — this little universe is just for you from my side rah. 🌙✨**
