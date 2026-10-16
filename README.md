@@ -7,7 +7,7 @@
 
 ## 🌸 About the Project
 
-**Two Souls, One Universe** is a special birthday surprise webpage created with love for my little sister, **Deeksha papa**. 💗
+**Two Souls, One Universe** is a special birthday surprise webpage created with love for my little sister, **Deeksha**.💗
 
 As an elder brother, I wanted to create something more meaningful than an ordinary birthday gift — a little corner of the internet filled with love, heartfelt wishes, and beautiful memories.
 
@@ -31,7 +31,7 @@ This website is my small way of reminding my little sister how special she is to
 
 🎁 **Experience the birthday surprise here:**
 
-👉 [Two Souls, One Universe 💗](https://shashidahryr18.github.io/thangi1013/)
+👉 [💗](https://shashidahryr18.github.io/thangi1013/)
 
 ## 🚀 Run Locally
 
@@ -54,4 +54,4 @@ Made with ❤️, created with code, and dedicated to my little sister.
 
 > *"No matter how big the world gets or how far life takes us, you will always be my little sister, my happiness, and a piece of my heart."* 💖
 
-**To my little sister, Deeksha papa — this little universe is just for you. 🌙✨**
+**To my little sister, Deeksha  — this little universe is just for you from my side rah. 🌙✨**
