@@ -1,35 +1,57 @@
-# 🌐 My Web Project
+# 💖 Two Souls, One Universe
 
-## 📌 About the Project
-This project is a website developed using HTML, CSS, and JavaScript. It features a simple, user-friendly design and an interactive experience.
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20with-Love-ff69b4?style=for-the-badge" alt="Made with love">
+  <img src="https://img.shields.io/badge/Created%20with-HTML%2C%20CSS%20%26%20JavaScript-purple?style=for-the-badge" alt="Technologies used">
+</p>
+
+## 🌸 About the Project
+
+**Two Souls, One Universe** is a special birthday surprise webpage created with love for my little sister, **Deeksha papa**. 💗
+
+As an elder brother, I wanted to create something more meaningful than an ordinary birthday gift — a little corner of the internet filled with love, heartfelt wishes, and beautiful memories.
+
+This website is my small way of reminding my little sister how special she is to me and how much happiness she brings into my life. No matter how much we grow, she will always have a special place in my heart. 🫶🏻
 
 ## ✨ Features
-- Responsive and attractive user interface
-- Clean and organized design
-- Interactive elements
-- Easy navigation
+
+- 🎂 Personalized birthday wishes for my little sister
+- 💌 Heartfelt messages filled with love
+- 🎀 A special digital birthday surprise
+- 💖 A personal and memorable experience
+- 🌐 Live website hosted using GitHub Pages
 
 ## 🛠️ Technologies Used
-- HTML5
-- CSS3
-- JavaScript
 
-## 🚀 How to Run
-1. Clone or download this repository.
-2. Open the project folder.
-3. Open `index.html` in your browser.
+- **HTML5** — Website structure
+- **CSS3** — Styling and visual design
+- **JavaScript** — Interactive functionality
 
-## 📂 Project Structure
-```text
-project/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+## 🌍 Live Website
 
-## 👨‍💻 Author
-Shashidhar Y R
+🎁 **Experience the birthday surprise here:**
 
-## 📄 License
-This project is available for learning and educational purposes.
+👉 [Two Souls, One Universe 💗](https://shashidahryr18.github.io/thangi1013/)
+
+## 🚀 Run Locally
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/shashidahryr18/thangi1013.git
+   ```
+
+2. Open the downloaded project folder.
+3. Open `index.html` in your browser to explore the website.
+
+## 👨‍💻 Created With Love By
+
+**Shashidhar Gowda Y R**
+
+Made with ❤️, created with code, and dedicated to my little sister.
+
+---
+
+> *"No matter how big the world gets or how far life takes us, you will always be my little sister, my happiness, and a piece of my heart."* 💖
+
+**To my little sister, Deeksha papa — this little universe is just for you. 🌙✨**
